@@ -61,6 +61,7 @@ const Product = ({product})=>{
        })
      })
    const res2 = await res.json()
+   router.push('/cart')
    if(res2.error){
       M.toast({html:error,classes:"red"})
       cookie2.remove("user")
@@ -74,7 +75,7 @@ const Product = ({product})=>{
     return(
         <div className="container center-align">
             <h3>{product.name}</h3>
-            <img src={product.mediaUrl} style={{width:'30%'}} />
+            <img src={product.selectedFile} style={{width:'30%'}} />
             <h5>RS {product.price}</h5>
             <input
              type="number"
@@ -99,8 +100,8 @@ const Product = ({product})=>{
             </button>
             }
             
-            <p  className="left-align">
-              {product.description}
+            <p  className="align: center">
+              Description:  {product.description}
             </p>
             {user.role != 'user'
                && 

@@ -10,7 +10,7 @@ const orderSchema  = new mongoose.Schema({
     products:[
         {
             quantity:{type:Number,default:1},
-            product:{type:ObjectId,ref:"product"}
+            product:{type:ObjectId,ref:"Product"}
        }
     ],
     email:{
@@ -25,5 +25,5 @@ const orderSchema  = new mongoose.Schema({
     timestamps:true
 })
 
-
-export default mongoose.models.Order || mongoose.model("Order",orderSchema)
+mongoose.models = {}
+export default  mongoose.model("Order",orderSchema)

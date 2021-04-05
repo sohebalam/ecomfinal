@@ -101,27 +101,37 @@ const Cart = ({ error, products }) => {
 
   const TotalPrice = () => {
     return (
+      <>
+      
       <div
         className="container"
         style={{ display: "flex", justifyContent: "space-between" }}
       >
-        <h5>total £ {price}</h5>
+        <h5>Total £ {price}</h5>
         {products.length != 0 && (
           <StripeCheckout
             name="My store"
             amount={price * 100}
             image={products.length > 0 ? products[0].product.selectedFile : ""}
-            currency="INR"
-            shippingAddress={true}
+            currency="GBP"
+            // shippingAddress={true}
             billingAddress={true}
             zipCode={true}
-            stripeKey="pk_test_51H6fgDEta3rHzkPYGgIOQZSFrukEzAl71AOnyAUjyGR8uJPDaGfALQYWre4F5g0Quyh9d7PTphh56SmUlhtsQYmd00DZwB9gMj"
+            stripeKey="pk_test_51H3gVIARrn8JZG3gx2b4WTqj6pl7AsVTUfY3e8u8u8vdRnZ4uCGrFOOD0wbm1lubTqMbQxlZtpPIjx49EXY8MNpo00BzYLddFg"
             token={(paymentInfo) => handleCheckout(paymentInfo)}
           >
             <button className="btn">Checkout</button>
           </StripeCheckout>
         )}
       </div>
+      <div
+        className="container">
+       <Link href='/'>
+       
+        <button className="btn align: right">Continue Shopping</button>
+       </Link>
+        </div>
+      </>
     )
   }
   return (

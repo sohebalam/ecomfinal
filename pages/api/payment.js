@@ -1,15 +1,15 @@
 import Stripe from 'stripe'
 import {v4 as uuidV4 } from 'uuid'
-import Cart from '../../models/Cart'
+import Cart from '../../models/cartModel'
 import jwt from 'jsonwebtoken'
-import Order from '../../models/Order'
+import Order from '../../models/orderModel'
 import initDb from '../../helpers/initDB'
 
 
 initDb()
 
 
-const stripe = Stripe(process.env.STRIPE_SECRET)
+const stripe = Stripe(process.env.YOUR_SECRET_KEY)
 export default async (req,res)=>{
     const {paymentInfo} = req.body
     const {authorization} = req.headers
@@ -38,7 +38,7 @@ export default async (req,res)=>{
 
          await stripe.charges.create(
               {
-                  currency:"INR",
+                  currency:"GBP",
                   amount: price * 100,
                   receipt_email:paymentInfo.email,
                   customer: isExistingCustomer ? prevCustomer.data[0].id : newCustomer.id,

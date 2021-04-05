@@ -1,5 +1,5 @@
 import initDb from '../../helpers/initDB'
-import Order from '../../models/Order'
+import Order from '../../models/orderModel'
 import Authenticated from '../../helpers/Authenticated'
 
 initDb()

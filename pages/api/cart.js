@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-import Cart from "../../models/Cart"
+import Cart from "../../models/cartModel"
 import Authenticated from "../../helpers/Authenticated"
 import initDb from "../../helpers/initDB"
 

@@ -13,8 +13,8 @@ const cartSchema = new mongoose.Schema({
     },
   ],
 })
-
-export default mongoose.models.Cart || mongoose.model("Cart", cartSchema)
+mongoose.models = {}
+export default  mongoose.model("Cart", cartSchema)
 
 // {
 //     user:"214234214",
